@@ -26,13 +26,21 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+- Player guesses A number from 1-100
 - [ ] Detail which bugs you found.
+- 1. The history would not be cleared even user start a new game, and the game cannot submit guess when start a new game whether the user won last time
+- 2. The hint is opponent. If user input a number higher than the secret number, the hint would say go higher; if user input a number lower than the secret number, the hint would say go lower.
+- 3. The range should be 1 to 100, however, numbers out of this range are also be accepted.
 - [ ] Explain what fixes you applied.
+- I fixed issue 1 by rewrite initialization of new game. Fixed issue 2 by change the check_guess function logic.
 
 ## 📸 Demo
 
 - [ ] [Insert a screenshot of your fixed, winning game here]
+![alt text](image-1.png)
+![alt text](image-2.png)
 
 ## 🚀 Stretch Features
 
 - [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
+![alt text](image.png)
