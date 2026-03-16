@@ -57,6 +57,29 @@ def test_parse_guess_invalid():
     assert guess is None
     assert err == "That is not a number."
 
+def test_parse_guess_whitespace_only():
+    # Whitespace input should be rejected, not parsed as a number
+    ok, guess, err = parse_guess("   ")
+    assert ok == False
+    assert guess is None
+    assert err == "That is not a number."
+
+def test_parse_guess_out_of_range_negative():
+    # Negative numbers are parsed successfully — no bounds check exists
+    # This reveals that parse_guess accepts -5 even though the game range is 1-100
+    ok, guess, err = parse_guess("-5")
+    assert ok == True
+    assert guess == -5
+    assert err is None
+
+def test_parse_guess_decimal_truncates_silently():
+    # "50.9" gets silently truncated to 50
+    # A player typing 50.9 would win if secret is 50, without ever guessing exactly 50
+    ok, guess, err = parse_guess("50.9")
+    assert ok == True
+    assert guess == 50
+    assert err is None
+
 def test_full_game_simulation():
     # Simulate playing the game once and starting again
     # Get range for Normal
@@ -106,3 +129,4 @@ def test_full_game_simulation():
     assert outcome == "Win"
     new_score = update_score(0, outcome, 1)
     assert new_score == 80  # 100 - 10*2 = 80
+
