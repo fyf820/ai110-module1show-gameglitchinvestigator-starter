@@ -8,6 +8,10 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - List at least two concrete bugs you noticed at the start  
   (for example: "the secret number kept changing" or "the hints were backwards").
 
+- 1. The history would not be cleared even user start a new game, and the game cannot submit guess when start a new game whether the user won last time
+- 2. The hint is opponent. If user input a number higher than the secret number, the hint would say go higher; if user input a number lower than the secret number, the hint would say go lower.
+- 3. The range should be 1 to 100, however, numbers out of this range are also be accepted.
+
 ---
 
 ## 2. How did you use AI as a teammate?
