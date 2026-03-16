@@ -1,4 +1,6 @@
+#FIX: Refactored logic into logic_utils.py using Copilot Agent mode
 def get_range_for_difficulty(difficulty: str):
+    #FIX: AI specified ranges for each difficulty level. Easy: 1-20, Normal: 1-100, Hard: 1-50
     """Return (low, high) inclusive range for a given difficulty."""
     if difficulty == "Easy":
         return 1, 20
@@ -38,6 +40,7 @@ def check_guess(guess, secret):
 
     outcome examples: "Win", "Too High", "Too Low"
     """
+    #FIX: Correct reverse logic for "Too High" and "Too Low" hints. If guess is higher than secret, hint should be "Go LOWER". If guess is lower than secret, hint should be "Go HIGHER".
     if guess == secret:
         return "Win", "🎉 Correct!"
 
